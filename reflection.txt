@@ -3,4 +3,4 @@ One experimentation or method I used was in (commit bc2ed6e). The original login
 I replaced it with the database query but that meant I had to choose what session data was saved on a successful login.
 Just storing the username before was not enough because the editors page guard middlewaare would not know the user's access level to know where to direct them.
 This led me to store the user's level in the session beside their username which now let the editors middleware to verify the session level editor smoothly (commit fe0cbae) without the need for database requests.
-This taught me that having a plan for what data to store in each session is crucial because newer features will rely on this decision. 
+This taught me that having a plan for what data to store in each session is crucial because newer features will rely on this decision
