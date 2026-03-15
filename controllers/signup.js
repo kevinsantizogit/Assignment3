@@ -21,6 +21,7 @@ router.post("/attemptcreate", async function(req, res) {
     await UsersModel.createUser(username, password);
     req.session.signup_success = "User account created!";
     res.redirect("/signup");
+    //new
   }
 });
 
