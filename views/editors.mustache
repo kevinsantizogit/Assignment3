@@ -6,7 +6,42 @@
   <div class="leftcolumn">
     <div class="card">
       <h2>Editors</h2>
-      <p>Only editors should be able to view this page!</p>
+      <p>Only editors should be able to see the editors page.</p>
+
+      <h3>Users</h3>
+      <table border="1" cellpadding="5" cellspacing="0">
+        <tr style="background:#333; color:#fff;">
+          <th>Username</th>
+          <th>Password</th>
+          <th>Level</th>
+          <th>Delete</th>
+        </tr>
+        {{#users}}
+        <tr>
+          <td>{{ username }}</td>
+          <td>{{ password }}</td>
+          <td>{{ level }}</td>
+          <td><a href="/editors/deleteuser/{{ username }}">D</a></td>
+        </tr>
+        {{/users}}
+      </table>
+
+      <h3>Articles</h3>
+      <table border="1" cellpadding="5" cellspacing="0">
+        <tr style="background:#333; color:#fff;">
+          <th>Title</th>
+          <th>Author</th>
+          <th>Delete</th>
+        </tr>
+        {{#articles}}
+        <tr>
+          <td>{{ title }}</td>
+          <td>{{ username }}</td>
+          <td><a href="/editors/deletearticle/{{ rowid }}">D</a></td>
+        </tr>
+        {{/articles}}
+      </table>
+
     </div>
   </div>
 
