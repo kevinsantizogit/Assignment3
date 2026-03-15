@@ -10,6 +10,8 @@ router.get("/", async function(req, res) {
   res.render("editors", req.TPL);
 });
 
+//Added these lines below
+
 router.get("/deletearticle/:rowid", async function(req, res) {
   await ArticlesModel.deleteArticle(req.params.rowid);
   res.redirect("/editors");
