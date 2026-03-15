@@ -12,6 +12,24 @@ app.set('views', __dirname + '/views');
 // which is something that occurs when we have a POST request.
 app.use(express.urlencoded({extended: false}));
 
+const fs = require('fs');
+const path = require('path');
+
+app.use(function(req, res, next) {
+  const line = [
+    new Date(),
+    req.path,
+    req.ip,
+    JSON.stringify(req.query),
+    JSON.stringify(req.body)
+  ].join(',') + '\n';
+
+  fs.appendFile(path.join(__dirname, 'log.txt'), line, err => {
+    if (err) console.error(err);
+  });
+  next();
+});
+
 // Use the session middleware
 app.use(session({secret: 'keyboard cat'
                 ,resave: false
