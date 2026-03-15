@@ -5,16 +5,17 @@
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
-      <h2>Login</h2>
-      <p>New user? <a href="/signup">Sign-up</a> for an account!</p>
-      <p>Enter your username and password below to login.</p>
-      <p style="color:red;">{{ login_error }}</p>
-      <form action="/login/attemptlogin" method="post">
+      <h2>Sign-up for an account</h2>
+      {{#signup_success}}
+      <p><strong>User account created!</strong> <a href="/login">Login</a> to access your new account.</p>
+      {{/signup_success}}
+      <p style="color:red;">{{ signup_error }}</p>
+      <form action="/signup/attemptcreate" method="post">
         <label for="username">Username:</label>
         <input type="text" name="username"> <br /> <br />
         <label for="password">Password:</label>
         <input type="text" name="password"> <br /> <br />
-        <input type="submit" value="Login">
+        <input type="submit" value="Sign-up">
       </form> <br />
     </div>
   </div>
